@@ -1,0 +1,61 @@
+import Image from 'next/image';
+
+export default function Home() {
+  return (
+    <div
+      className="min-h-screen bg-cover bg-center p-4"
+      style={{ backgroundImage: "url('/your-background-image.jpg')" }}
+    >
+      {/* Header with Logos */}
+      <header className="flex justify-between mb-4">
+        <Image src="/left-logo.png" alt="Left Logo" width={100} height={50} />
+        <Image src="/right-logo.png" alt="Right Logo" width={100} height={50} />
+      </header>
+
+      {/* ID Input Field */}
+      <div className="flex justify-center mb-4">
+        <div className="w-full max-w-xs">
+          <label className="block text-left text-white">ID</label>
+          <input
+            type="number"
+            className="w-full p-2 mt-2 rounded-lg bg-white bg-opacity-20 text-white placeholder-white"
+            placeholder="Enter ID"
+          />
+        </div>
+      </div>
+
+      {/* Top Up Heading */}
+      <h2 className="text-left text-white mb-4 text-xl">Top Up</h2>
+
+      {/* Grid of Options */}
+      <div className="grid grid-cols-3 gap-4 p-4 sm:grid-cols-6 sm:grid-rows-2">
+        {[...Array(12)].map((_, index) => (
+          <div
+            key={index}
+            className="relative aspect-square bg-white bg-opacity-20 rounded-lg flex flex-col items-center justify-center p-2"
+          >
+            <span className="absolute top-2 left-2 bg-yellow-400 text-black px-2 py-1 rounded-full text-xs">
+              Badge
+            </span>
+            <Image src="/option-image.png" alt="Option" width={50} height={50} />
+            <p className="text-white mt-2 text-sm">Points</p>
+            <p className="text-white text-sm">$10</p>
+          </div>
+        ))}
+      </div>
+
+      {/* Next Button */}
+      <div className="flex justify-center mb-4">
+        <button className="bg-blue-500 text-white py-2 px-4 rounded-lg">
+          Next
+        </button>
+      </div>
+
+      {/* Footer */}
+      <footer className="border-t border-white border-opacity-20 text-center p-4">
+        <p className="text-white">Subscribe Us</p>
+        <Image src="/footer-logo.png" alt="Footer Logo" width={50} height={50} className="mx-auto mt-2" />
+      </footer>
+    </div>
+  );
+}
