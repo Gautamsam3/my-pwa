@@ -47,7 +47,7 @@ export default function Home() {
         <h2 className="text-white text-sm font-semibold mb-4">Top Up Amount</h2>
 
         {/* Grid Layout */}
-        <div className="grid grid-cols-3 sm:grid-cols-6 gap-4">
+        <div className="grid grid-cols-3 sm:grid-cols-6 gap-3">
           {topups.map((topup) => (
             <div
               key={topup.id}
@@ -75,10 +75,10 @@ export default function Home() {
               />
 
               {/* Points */}
-              <p className="text-white font-semibold text-sm">{topup.coin}</p>
+              <p className="text-white font-bold text-xs mt-2 lg:text-sm whitespace-nowrap">{topup.coin} Coins</p>
 
               {/* Amount */}
-              <p className="text-white text-sm">{topup.Rp}</p>
+              <p className="text-white text-xs lg:text-sm whitespace-nowrap">Rp. {topup.Rp}</p>
             </div>
           ))}
         </div>
