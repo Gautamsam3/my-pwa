@@ -12,6 +12,7 @@ export default function CheckoutPage() {
   const coin = searchParams.get("coin");
   const amount = searchParams.get("amount");
   const img = searchParams.get("img") || "/coin.png";
+  const status = "success";
 
   useEffect(() => {
     if (!userId || !coin || !amount) {
@@ -46,7 +47,13 @@ export default function CheckoutPage() {
         </div>
 
         <div className="mt-6 flex justify-center space-x-4">
-          <button className="p-24 lg:px-52 py-2 bg-gradient-to-tr from-[#4749D4] to-[#1D2F93] text-white font-semibold rounded-lg">Success</button>
+          {status === "success" ? (
+            <button className="p-24 lg:px-52 py-2 bg-[#2c9920ba] border border-[#b0ac20] text-white font-semibold rounded-lg">Success</button>
+          ) : status === "failed" ? (
+            <button className="p-24 lg:px-52 py-2 bg-[#991210c9] border border-[#c6120f] text-white font-semibold rounded-lg">Failed</button>
+          ) : (
+            <button className="p-24 lg:px-52 py-2 bg-[#987e00e3] border border-[#b0ac20] text-white font-semibold rounded-lg">Pending</button>
+          )}
         </div>
       </main>
     </div>
