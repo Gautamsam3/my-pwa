@@ -31,7 +31,6 @@ export default function RootLayout({
       >
         {children}
         <Toaster />
-        <FloatingChat />
       </body>
     </html>
   );
