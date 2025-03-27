@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 import { useSearchParams, useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 
-export default function CheckoutPage() {
+function CheckoutContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
 
@@ -23,8 +23,8 @@ export default function CheckoutPage() {
   return (
     <div className="min-h-screen bg-cover bg-center bg-[url(/bg.png)]">
       <header className="flex justify-between items-center p-4">
-        <Image src="/rlogo.png" alt="Left Logo" width={150} height={150} priority/>
-        <Image src="/llogo.png" alt="Right Logo" width={150} height={150} priority/>
+        <Image src="/rlogo.png" alt="Left Logo" width={150} height={150} priority />
+        <Image src="/llogo.png" alt="Right Logo" width={150} height={150} priority />
       </header>
 
       <main className="p-4 max-w-4xl mx-auto">
@@ -57,5 +57,13 @@ export default function CheckoutPage() {
         </div>
       </main>
     </div>
+  );
+}
+
+export default function CheckoutPage() {
+  return (
+    <Suspense fallback={<p className="text-white">Loading...</p>}>
+      <CheckoutContent />
+    </Suspense>
   );
 }

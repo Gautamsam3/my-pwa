@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { useToast } from "@/hooks/use-toast";
 
 export default function Home() {
   const topups = [
@@ -22,15 +21,11 @@ export default function Home() {
   ];
 
   const router = useRouter();
-  const { toast } = useToast();
   const [selected, setSelected] = useState<number | null>(null);
   const [userId, setUserId] = useState("");
   const handleNext = () => {
     if (selected === null || userId.trim() === "") {
-      toast({
-        variant: "destructive",
-        title: "Uh oh! Please enter the ID rise and Select Your Topup.",
-      });
+      alert("Uh oh! Please enter the ID rise and Select Your Topup.");
       return;
     }
 
